@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 // import App from './App'
-import ListMenu from './ListMenu'
+import ListMenu from './components/ListMenu'
 import * as serviceWorker from './serviceWorker'
 
-const menuItems = [{ title: 'Menu A', link: '' }, { title: 'Menu B', link: '' }, { title: 'Menu C', link: '' }]
+const menuItems = [{ title: 'Facebook', link: 'https://facebook.com' }, { title: 'Twitter', link: 'https://twitter.com' }, { title: 'Google', link: 'https://google.com' }]
 
 ReactDOM.render(<ListMenu items={menuItems} />, document.getElementById('root'))
 
