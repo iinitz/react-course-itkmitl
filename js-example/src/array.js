@@ -20,8 +20,15 @@ console.log(oddOrEven)
 // const double = numbers.map(num => num * 2)
 // console.log(double)
 
-// [1, 5, 9, 22, 33]
+const numbersPong = [1, 5, 9, 22, 33]
 // [1, 5, 'Pong', 22, 'Pong']
+const pongGame = numbersPong.map((num) => {
+  if (num % 3 === 0 || num % 10 === 3) {
+    return 'Pong'
+  }
+  return num
+})
+console.log(pongGame)
 
 const users = [
   { name: 'Admin', isAdmin: true, location: 'TH' },
@@ -31,3 +38,26 @@ const users = [
   { name: 'Customer 1', isAdmin: false, location: 'TH' },
   { name: 'Customer 2', isAdmin: false, location: 'USA' },
 ]
+// ['Admin', 'Sale 1', 'Sale 2', 'Sale 3', Customer 1', 'Customer 2']
+const names = users.map(user => user.name)
+console.log(names)
+
+// [{ name: 'Admin', isAdmin: true, location: 'TH' }]
+const checkIsAdmin = user => user.isAdmin
+const admins = users.filter(checkIsAdmin)
+console.log(admins)
+
+const checkUserInTh = user => user.location === 'TH'
+const thUsers = users.filter(checkUserInTh)
+console.log(thUsers)
+
+const haveAdmin = users.every(user => user.isAdmin)
+console.log(haveAdmin)
+
+users.forEach((user) => {
+  console.log(user.name)
+})
+const numberIndex = numbers.indexOf(2)
+console.log(numberIndex)
+const userIndex = users.findIndex(user => user.isAdmin && user.location === 'TH')
+console.log(userIndex)
