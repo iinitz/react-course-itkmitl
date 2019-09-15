@@ -1,32 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import logo from './logo.svg'
-import './App.css'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-const App = props => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Hello, {props.name}!!, {props.num}
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+import HomePage from './pages/HomePage'
+import UsersPage from './pages/UsersPage'
+
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={HomePage} exact />
+      <Route path="/users" component={UsersPage} />
+    </Switch>
+  </BrowserRouter>
 )
-App.propTypes = {
-  name: PropTypes.string.isRequired,
-  num: PropTypes.number,
-}
-App.defaultProps = {
-  num: 100,
-}
 
 export default App
