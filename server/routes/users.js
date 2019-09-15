@@ -48,7 +48,9 @@ const users = [
 ]
 
 router.get('/', (req, res, next) => {
-  res.json(users)
+  setTimeout(() => {
+    res.json(users)
+  }, 1000)
 })
 router.get('/:userId', (req, res, next) => {
   const { userId } = req.params
