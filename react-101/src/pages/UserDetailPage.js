@@ -13,7 +13,7 @@ const UserDetailPage = (props) => {
       setLoading(false)
     }
     getUserById()
-  }, [])
+  }, [userId])
   if (loading) {
     return (
       <h3>Loading ...</h3>
