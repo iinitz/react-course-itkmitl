@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Input = (props) => {
   const { type, value, onChange } = props
@@ -12,6 +13,16 @@ const Input = (props) => {
       onChange={handleInputChange}
     />
   )
+}
+Input.propTypes = {
+  type: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onChange: PropTypes.func,
+}
+Input.defaultProps = {
+  type: 'text',
+  value: '',
+  onChange: () => {},
 }
 
 export default Input

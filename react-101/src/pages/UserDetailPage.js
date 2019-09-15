@@ -1,9 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import PageTitle from '../components/PageTitle'
 
 const UserDetailPage = (props) => {
   console.log(props)
-  const { userId } = props.match.params
+  const { match: { params: { userId } } } = props
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
   useEffect(() => {
@@ -36,6 +37,9 @@ const UserDetailPage = (props) => {
       <h3>Active: {user.active}</h3>
     </Fragment>
   )
+}
+UserDetailPage.propTypes = {
+  match: PropTypes.shape().isRequired,
 }
 
 export default UserDetailPage
