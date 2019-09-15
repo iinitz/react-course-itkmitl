@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import PageTitle from '../components/PageTitle'
 
 const UserDetailPage = (props) => {
+  console.log(props)
   const { userId } = props.match.params
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -26,7 +28,7 @@ const UserDetailPage = (props) => {
   }
   return (
     <Fragment>
-      <h1>User detail, userId: {userId}</h1>
+      <PageTitle title="User detail" />
       <h3>ID: {user.id}</h3>
       <h3>Name: {user.name}</h3>
       <h3>Email: {user.email}</h3>
