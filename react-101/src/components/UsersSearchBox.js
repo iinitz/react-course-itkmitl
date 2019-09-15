@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Input from './Input'
+import UsersDataContext from '../contexts/UsersDataContext'
 
 const UsersSearchBox = () => {
-  const value = ''
-  const handleInputChange = () => {}
+  const { search, setSearch } = useContext(UsersDataContext)
+  const handleInputChange = (val) => {
+    setSearch(val)
+  }
   return (
-    <Input type="text" value={value} onChange={handleInputChange} />
+    <Input type="text" value={search} onChange={handleInputChange} />
   )
 }
 

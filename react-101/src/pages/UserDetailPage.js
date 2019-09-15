@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import PageTitle from '../components/PageTitle'
 
 const UserDetailPage = (props) => {
-  console.log(props)
   const { match: { params: { userId } } } = props
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(false)

@@ -1,10 +1,14 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+
+import PageTitle from '../components/PageTitle'
 import UsersSearchBox from '../components/UsersSearchBox'
 import UsersTable from '../components/UsersTable'
+import UsersDataContext from '../contexts/UsersDataContext'
 
 const UsersPage = () => {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(false)
+  const [search, setSearch] = useState('')
   useEffect(() => {
     const getUsers = async () => {
       setLoading(true)
@@ -21,10 +25,14 @@ const UsersPage = () => {
     )
   }
   return (
-    <Fragment>
+    <UsersDataContext.Provider value={{
+      users, loading, search, setSearch,
+    }}
+    >
+      <PageTitle title="Users" />
       <UsersSearchBox />
       <UsersTable />
-    </Fragment>
+    </UsersDataContext.Provider>
   )
 }
 

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
 const PageTitle = (props) => {
-  console.log(props)
   const { title } = props
   return (
     <h1>{title}</h1>
