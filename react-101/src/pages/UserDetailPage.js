@@ -1,11 +1,32 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 
 const UserDetailPage = (props) => {
-  console.log(props)
-  const user = {}
+  const { userId } = props.match.params
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    const getUserById = async () => {
+      setLoading(true)
+      const response = await fetch(`http://localhost:8000/users/${userId}`)
+      const data = await response.json()
+      setUser(data)
+      setLoading(false)
+    }
+    getUserById()
+  }, [])
+  if (loading) {
+    return (
+      <h3>Loading ...</h3>
+    )
+  }
+  if (!user) {
+    return (
+      <h3>User id: {userId} not found</h3>
+    )
+  }
   return (
     <Fragment>
-      <h1>User detail, userId: {props.match.params.userId}</h1>
+      <h1>User detail, userId: {userId}</h1>
       <h3>ID: {user.id}</h3>
       <h3>Name: {user.name}</h3>
       <h3>Email: {user.email}</h3>

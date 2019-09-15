@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const UsersPage = () => {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(false)
   useEffect(() => {
-    console.log('fetch data')
     const getUsers = async () => {
       setLoading(true)
       const response = await fetch('http://localhost:8000/users')
       const data = await response.json()
-      console.log(data)
       setUsers(data)
       setLoading(false)
     }
@@ -29,6 +28,7 @@ const UsersPage = () => {
           <th>Email</th>
           <th>Role</th>
           <th>Active</th>
+          <th>Detail</th>
         </tr>
       </thead>
       <tbody>
@@ -39,6 +39,7 @@ const UsersPage = () => {
             <td>{user.email}</td>
             <td>{user.role}</td>
             <td>{user.active ? 'Yes' : 'No'}</td>
+            <td><Link to={`/users/${user.id}`}>View detail</Link></td>
           </tr>
         ))}
       </tbody>
