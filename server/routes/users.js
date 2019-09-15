@@ -52,7 +52,7 @@ router.get('/', (req, res, next) => {
 })
 router.get('/:userId', (req, res, next) => {
   const { userId } = req.params
-  const userIndex = users.findIndex(user => user.id === userId)
+  const userIndex = users.findIndex(user => user.id === parseInt(userId, 10))
   if (userIndex !== -1) {
     res.json(users[userIndex])
   } else {
